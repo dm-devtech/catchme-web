@@ -36,9 +36,9 @@ function computeDistance(lat1, lon1, lat2, lon2) {
 
 export default function DistanceCalculator() {
   const location = useLocation();
+  let myLocId = location.myLocId;
   const [updateLocation] = useMutation(UPDATE_LOCATION);
   const [createScore] = useMutation(CREATE_SCORE);
-  let myLocId = location.myLocId;
   const [first, setFirst] = useState(true);
   const [distance, setDistance] = useState(0);
   const [startCoor, setStartCoor] = useState({
@@ -111,6 +111,9 @@ export default function DistanceCalculator() {
         variables: { id: location.RaceId },
       });
       let userRaceTime;
+      if (!race) {
+        return;
+      }
       const user = race.users.filter((user) => {
         return user.id === location.me;
       });

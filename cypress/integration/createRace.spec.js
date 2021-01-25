@@ -1,130 +1,128 @@
-describe('Testing how to play page', function() {
+describe("Testing how to play page", function () {
+  describe("create a race", function () {
+    it("start a 10m race", function () {
+      cy.visit("/createrace");
+      cy.location("pathname").should("include", "createrace");
+      cy.get('[alt="home-icon"]').should("be.visible");
+      cy.get('input[value="10"]').scrollIntoView().check({ force: true });
+      cy.get('input[type="text"]').type("Jules");
+      cy.get('input[type="submit"]').click();
+      cy.location("pathname").should("include", "createrace");
+      cy.get("h1").contains("CatchMe");
+      cy.get('[class="lobby-page"]').contains("Lobby");
+      cy.get('[alt="home-icon"]').should("be.visible");
+      cy.get("p").contains("Code");
+      cy.get("p").contains("Distance: 10m");
+      cy.get("p").contains("Participants");
+      cy.get('[class="user-details"]').contains("Jules");
+      cy.get("button").contains("Ready!").click();
+      cy.get('img[alt="start-button"]').click();
+      cy.location("pathname").should("include", "race");
+      cy.get("h1").contains("CatchMe");
+      cy.get('[class="race-details"]').contains("Jules");
+      cy.get("p").contains("0.00");
+      cy.get("h2").contains("Time");
+      cy.get('[class="stopwatch__display"]').should("be.visible");
+    });
 
-  describe('create a race', function() {
-    it('start a 10m race', function() {
-      cy.visit('/createrace')
-      cy.location('pathname').should('include', 'createrace')
-      cy.get('[alt="home-icon"]').should('be.visible')
-      cy.get('input[value="10"]').scrollIntoView().check({force: true})
-      cy.get('input[type="text"]').type('Jules')
-      cy.get('input[type="submit"]').click()
-      cy.location('pathname').should('include', 'lobby')
-      cy.get('h1').contains('CatchMe')
-      cy.get('[class="lobby-page"]').contains('Lobby')
-      cy.get('[alt="home-icon"]').should('be.visible')
-      cy.get('p').contains('Code')
-      cy.get('p').contains('Distance: 10m')
-      cy.get('p').contains('Participants')
-      cy.get('[class="user-details"]').contains('Jules')
-      cy.get('button').contains('Ready!').click()
-      cy.get('img[alt="start-button"]').click()
-      cy.location('pathname').should('include', 'race')
-      cy.get('h1').contains('CatchMe')
-      cy.get('[class="race-details"]').contains('Jules')
-      cy.get('p').contains('0.00')
-      cy.get('h2').contains('Time')
-      cy.get('[class="stopwatch__display"]').should('be.visible')
-    })
+    it("start a 500m race", function () {
+      cy.visit("/createrace");
+      cy.location("pathname").should("include", "createrace");
+      cy.get('[alt="home-icon"]').should("be.visible");
+      cy.get('input[value="500"]').scrollIntoView().check({ force: true });
+      cy.get('input[type="text"]').type("James");
+      cy.get('input[type="submit"]').click();
+      cy.location("pathname").should("include", "lobby");
+      cy.get("h1").contains("CatchMe");
+      cy.get('[class="lobby-page"]').contains("Lobby");
+      cy.get('[alt="home-icon"]').should("be.visible");
+      cy.get("p").contains("Code");
+      cy.get("p").contains("Distance: 500m");
+      cy.get("p").contains("Participants");
+      cy.get('[class="user-details"]').contains("James");
+      cy.get("button").contains("Ready!").click();
+      cy.get('img[alt="start-button"]').click();
+      cy.location("pathname").should("include", "race");
+      cy.get("h1").contains("CatchMe");
+      cy.get('[class="race-details"]').contains("James");
+      cy.get("p").contains("0.00");
+      cy.get("h2").contains("Time");
+      cy.get('[class="stopwatch__display"]').should("be.visible");
+    });
 
-    it('start a 500m race', function() {
-      cy.visit('/createrace')
-      cy.location('pathname').should('include', 'createrace')
-      cy.get('[alt="home-icon"]').should('be.visible')
-      cy.get('input[value="500"]').scrollIntoView().check({force: true})
-      cy.get('input[type="text"]').type('James')
-      cy.get('input[type="submit"]').click()
-      cy.location('pathname').should('include', 'lobby')
-      cy.get('h1').contains('CatchMe')
-      cy.get('[class="lobby-page"]').contains('Lobby')
-      cy.get('[alt="home-icon"]').should('be.visible')
-      cy.get('p').contains('Code')
-      cy.get('p').contains('Distance: 500m')
-      cy.get('p').contains('Participants')
-      cy.get('[class="user-details"]').contains('James')
-      cy.get('button').contains('Ready!').click()
-      cy.get('img[alt="start-button"]').click()
-      cy.location('pathname').should('include', 'race')
-      cy.get('h1').contains('CatchMe')
-      cy.get('[class="race-details"]').contains('James')
-      cy.get('p').contains('0.00')
-      cy.get('h2').contains('Time')
-      cy.get('[class="stopwatch__display"]').should('be.visible')
-    })
+    it("start a 1000m race", function () {
+      cy.visit("/createrace");
+      cy.location("pathname").should("include", "createrace");
+      cy.get('[alt="home-icon"]').should("be.visible");
+      cy.get('input[value="1000"]').scrollIntoView().check({ force: true });
+      cy.get('input[type="text"]').type("James");
+      cy.get('input[type="submit"]').click();
+      cy.location("pathname").should("include", "lobby");
+      cy.get("h1").contains("CatchMe");
+      cy.get('[class="lobby-page"]').contains("Lobby");
+      cy.get('[alt="home-icon"]').should("be.visible");
+      cy.get("p").contains("Code");
+      cy.get("p").contains("Distance: 1000m");
+      cy.get("p").contains("Participants");
+      cy.get('[class="user-details"]').contains("James");
+      cy.get("button").contains("Ready!").click();
+      cy.get('img[alt="start-button"]').click();
+      cy.location("pathname").should("include", "race");
+      cy.get("h1").contains("CatchMe");
+      cy.get('[class="race-details"]').contains("James");
+      cy.get("p").contains("0.00");
+      cy.get("h2").contains("Time");
+      cy.get('[class="stopwatch__display"]').should("be.visible");
+    });
 
-    it('start a 1000m race', function() {
-      cy.visit('/createrace')
-      cy.location('pathname').should('include', 'createrace')
-      cy.get('[alt="home-icon"]').should('be.visible')
-      cy.get('input[value="1000"]').scrollIntoView().check({force: true})
-      cy.get('input[type="text"]').type('James')
-      cy.get('input[type="submit"]').click()
-      cy.location('pathname').should('include', 'lobby')
-      cy.get('h1').contains('CatchMe')
-      cy.get('[class="lobby-page"]').contains('Lobby')
-      cy.get('[alt="home-icon"]').should('be.visible')
-      cy.get('p').contains('Code')
-      cy.get('p').contains('Distance: 1000m')
-      cy.get('p').contains('Participants')
-      cy.get('[class="user-details"]').contains('James')
-      cy.get('button').contains('Ready!').click()
-      cy.get('img[alt="start-button"]').click()
-      cy.location('pathname').should('include', 'race')
-      cy.get('h1').contains('CatchMe')
-      cy.get('[class="race-details"]').contains('James')
-      cy.get('p').contains('0.00')
-      cy.get('h2').contains('Time')
-      cy.get('[class="stopwatch__display"]').should('be.visible')
-    })
+    it("start a 1500m race", function () {
+      cy.visit("/createrace");
+      cy.location("pathname").should("include", "createrace");
+      cy.get('[alt="home-icon"]').should("be.visible");
+      cy.get('input[value="1500"]').scrollIntoView().check({ force: true });
+      cy.get('input[type="text"]').type("Jeffrey");
+      cy.get('input[type="submit"]').click();
+      cy.location("pathname").should("include", "lobby");
+      cy.get("h1").contains("CatchMe");
+      cy.get('[class="lobby-page"]').contains("Lobby");
+      cy.get('[alt="home-icon"]').should("be.visible");
+      cy.get("p").contains("Code");
+      cy.get("p").contains("Distance: 1500m");
+      cy.get("p").contains("Participants");
+      cy.get('[class="user-details"]').contains("Jeffrey");
+      cy.get("button").contains("Ready!").click();
+      cy.get('img[alt="start-button"]').click();
+      cy.location("pathname").should("include", "race");
+      cy.get("h1").contains("CatchMe");
+      cy.get('[class="race-details"]').contains("Jeffrey");
+      cy.get("p").contains("0.00");
+      cy.get("h2").contains("Time");
+      cy.get('[class="stopwatch__display"]').should("be.visible");
+    });
 
-    it('start a 1500m race', function() {
-      cy.visit('/createrace')
-      cy.location('pathname').should('include', 'createrace')
-      cy.get('[alt="home-icon"]').should('be.visible')
-      cy.get('input[value="1500"]').scrollIntoView().check({force: true})
-      cy.get('input[type="text"]').type('Jeffrey')
-      cy.get('input[type="submit"]').click()
-      cy.location('pathname').should('include', 'lobby')
-      cy.get('h1').contains('CatchMe')
-      cy.get('[class="lobby-page"]').contains('Lobby')
-      cy.get('[alt="home-icon"]').should('be.visible')
-      cy.get('p').contains('Code')
-      cy.get('p').contains('Distance: 1500m')
-      cy.get('p').contains('Participants')
-      cy.get('[class="user-details"]').contains('Jeffrey')
-      cy.get('button').contains('Ready!').click()
-      cy.get('img[alt="start-button"]').click()
-      cy.location('pathname').should('include', 'race')
-      cy.get('h1').contains('CatchMe')
-      cy.get('[class="race-details"]').contains('Jeffrey')
-      cy.get('p').contains('0.00')
-      cy.get('h2').contains('Time')
-      cy.get('[class="stopwatch__display"]').should('be.visible')
-    })
-
-    it('start a 2000m race', function() {
-      cy.visit('/createrace')
-      cy.location('pathname').should('include', 'createrace')
-      cy.get('[alt="home-icon"]').should('be.visible')
-      cy.get('input[value="2000"]').scrollIntoView().check({force: true})
-      cy.get('input[type="text"]').type('Julia')
-      cy.get('input[type="submit"]').click()
-      cy.location('pathname').should('include', 'lobby')
-      cy.get('h1').contains('CatchMe')
-      cy.get('[class="lobby-page"]').contains('Lobby')
-      cy.get('[alt="home-icon"]').should('be.visible')
-      cy.get('p').contains('Code')
-      cy.get('p').contains('Distance: 2000m')
-      cy.get('p').contains('Participants')
-      cy.get('[class="user-details"]').contains('Julia')
-      cy.get('button').contains('Ready!').click()
-      cy.get('img[alt="start-button"]').click()
-      cy.location('pathname').should('include', 'race')
-      cy.get('h1').contains('CatchMe')
-      cy.get('[class="race-details"]').contains('Julia')
-      cy.get('p').contains('0.00')
-      cy.get('h2').contains('Time')
-      cy.get('[class="stopwatch__display"]').should('be.visible')
-    })
-  })
-
-})
+    it("start a 2000m race", function () {
+      cy.visit("/createrace");
+      cy.location("pathname").should("include", "createrace");
+      cy.get('[alt="home-icon"]').should("be.visible");
+      cy.get('input[value="2000"]').scrollIntoView().check({ force: true });
+      cy.get('input[type="text"]').type("Julia");
+      cy.get('input[type="submit"]').click();
+      cy.location("pathname").should("include", "lobby");
+      cy.get("h1").contains("CatchMe");
+      cy.get('[class="lobby-page"]').contains("Lobby");
+      cy.get('[alt="home-icon"]').should("be.visible");
+      cy.get("p").contains("Code");
+      cy.get("p").contains("Distance: 2000m");
+      cy.get("p").contains("Participants");
+      cy.get('[class="user-details"]').contains("Julia");
+      cy.get("button").contains("Ready!").click();
+      cy.get('img[alt="start-button"]').click();
+      cy.location("pathname").should("include", "race");
+      cy.get("h1").contains("CatchMe");
+      cy.get('[class="race-details"]').contains("Julia");
+      cy.get("p").contains("0.00");
+      cy.get("h2").contains("Time");
+      cy.get('[class="stopwatch__display"]').should("be.visible");
+    });
+  });
+});

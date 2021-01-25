@@ -1,4 +1,4 @@
-# CatchMe [![Build Status](https://travis-ci.com/gonzalober/catchme-web.svg?branch=master)](https://travis-ci.com/gonzalober/catchme-web)
+# CatchMe [![Build Status](https://travis-ci.com/gonzalober/catchme-web.svg?branch=main)](https://travis-ci.com/gonzalober/catchme-web)
 
 ![Logo](src/assets/images/logo.gif)
 
